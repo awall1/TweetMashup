@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,17 +14,40 @@
         <scene sceneID="WMM-mx-uBZ">
             <objects>
                 <tableViewController id="4NJ-Ke-7rq" customClass="TweetTableViewController" customModule="TweetMashup" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="FNQ-Ej-F5E">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="28" sectionFooterHeight="28" id="FNQ-Ej-F5E">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pdI-Mv-038">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" tag="1" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="107" id="pdI-Mv-038">
+                                <rect key="frame" x="0.0" y="28" width="375" height="107"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pdI-Mv-038" id="BZW-8O-Rcl">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhU-Ut-FWs">
+                                            <rect key="frame" x="8" y="12" width="359" height="65"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVk-tn-GTQ">
+                                            <rect key="frame" x="8" y="85" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="PhU-Ut-FWs" firstAttribute="top" secondItem="BZW-8O-Rcl" secondAttribute="topMargin" constant="8" id="8ZO-vY-mcS"/>
+                                        <constraint firstItem="hVk-tn-GTQ" firstAttribute="top" secondItem="PhU-Ut-FWs" secondAttribute="bottom" constant="8" id="C56-1b-4kC"/>
+                                        <constraint firstAttribute="bottom" secondItem="hVk-tn-GTQ" secondAttribute="bottom" constant="8" id="CsC-iD-TDt"/>
+                                        <constraint firstAttribute="trailing" secondItem="hVk-tn-GTQ" secondAttribute="trailing" constant="8" id="Y05-kT-mxL"/>
+                                        <constraint firstItem="hVk-tn-GTQ" firstAttribute="leading" secondItem="BZW-8O-Rcl" secondAttribute="leading" constant="8" id="hUr-Ay-n6H"/>
+                                        <constraint firstItem="PhU-Ut-FWs" firstAttribute="trailing" secondItem="BZW-8O-Rcl" secondAttribute="trailingMargin" constant="8" id="lQ3-tt-Hz5"/>
+                                        <constraint firstItem="PhU-Ut-FWs" firstAttribute="leading" secondItem="BZW-8O-Rcl" secondAttribute="leadingMargin" constant="8" id="o56-xt-XSv"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -36,7 +60,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Xp-oP-d3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-460" y="167"/>
+            <point key="canvasLocation" x="-460" y="166.8665667166417"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fuS-fy-Fim">

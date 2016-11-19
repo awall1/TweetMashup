@@ -14,6 +14,7 @@
 		FA1026411DE034AF008F2E6D /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1026401DE034AF008F2E6D /* TweetTableViewController.swift */; };
 		FA1026431DE0350D008F2E6D /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1026421DE0350D008F2E6D /* TwitterAPI.swift */; };
 		FA32F7041DE0360B007CC46F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32F7021DE0360B007CC46F /* Alamofire.framework */; };
+		FA32F7061DE03A45007CC46F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32F7031DE0360B007CC46F /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA32F7041DE0360B007CC46F /* Alamofire.framework in Frameworks */,
+				FA32F7061DE03A45007CC46F /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +160,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
 			name = "Carthage Script";
 			outputPaths = (

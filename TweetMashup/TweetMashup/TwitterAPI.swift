@@ -8,10 +8,28 @@
 
 import Foundation
 import Alamofire
-//import SwiftyJSON //won't import because precompiled to wrong version of swift
+import SwiftyJSON //won't import because precompiled to wrong version of swift
+
+struct Tweet {
+    var message : String
+    var user : String
+    
+    init() {
+        message = ""
+        user = ""
+    }
+}
+
+enum SearchResult {
+    case success([Tweet])
+    case failure(Error)
+}
+
 
 
 class TwitterAPI {
+    
+    static let sharedInstance = TwitterAPI()
     
     fileprivate let baseUrl = URL(string: "https://api.twitter.com/")
     fileprivate let key =  "S2xmNUVJb2VRcUd2ZXRrOHhOSjRuUjNoWDpBcnp0TFIwM1VoQnpVNTRtSFNKRm9SczhtVXQ5em9jQkZSZ0lvTEl6dnVob2pIa0RxNQ=="
@@ -19,6 +37,37 @@ class TwitterAPI {
     
     init(){
         authenticate({})
+    }
+    
+    func search(query: String, completion: (SearchResult)->()) {
+        let headers = ["Authorization":"Bearer \(bearerToken)"]
+        let parameters: Parameters = ["q" : query]
+        
+        Alamofire.request((baseUrl?.appendingPathComponent("1.1/search/tweets.json"))!, parameters: parameters, headers: headers).responseJSON{
+            [weak self] (response: Alamofire.DataResponse<Any>) -> Void in
+            print(request)
+
+            
+            guard let _self = self, let data = response.data else {
+                return
+            }
+            
+            let json = JSON(data: data)
+            var tweetArray : [Tweet] = []
+            
+            for (key,subJson):(String, JSON) in  json["statuses"] {
+                print("Key: \(key)\nSubJson: \(subJson)")
+                
+                var tweet = Tweet()
+                
+                guard   let message = subJson["text"].string,
+                    let user = subJson["user"]["name"].string
+                    else{ return }
+                tweet.message = message
+                tweet.user = user
+                tweetArray.append(tweet)
+            }
+        }
     }
     
     func authenticate(_ completion: @escaping () -> Void) {
