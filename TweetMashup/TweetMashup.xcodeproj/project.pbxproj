@@ -12,6 +12,8 @@
 		FA1026341DE031B4008F2E6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1026321DE031B4008F2E6D /* Main.storyboard */; };
 		FA1026361DE031B4008F2E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1026351DE031B4008F2E6D /* Assets.xcassets */; };
 		FA1026391DE031B4008F2E6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1026371DE031B4008F2E6D /* LaunchScreen.storyboard */; };
+		FA1026411DE034AF008F2E6D /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1026401DE034AF008F2E6D /* TweetTableViewController.swift */; };
+		FA32F7041DE0360B007CC46F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32F7021DE0360B007CC46F /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,9 @@
 		FA1026351DE031B4008F2E6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA1026381DE031B4008F2E6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA10263A1DE031B4008F2E6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA1026401DE034AF008F2E6D /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
+		FA32F7021DE0360B007CC46F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		FA32F7031DE0360B007CC46F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA32F7041DE0360B007CC46F /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,7 @@
 			children = (
 				FA10262D1DE031B4008F2E6D /* TweetMashup */,
 				FA10262C1DE031B4008F2E6D /* Products */,
+				FA32F7011DE0360A007CC46F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,11 +64,21 @@
 				FA10262E1DE031B4008F2E6D /* AppDelegate.swift */,
 				FA1026301DE031B4008F2E6D /* ViewController.swift */,
 				FA1026321DE031B4008F2E6D /* Main.storyboard */,
+				FA1026401DE034AF008F2E6D /* TweetTableViewController.swift */,
 				FA1026351DE031B4008F2E6D /* Assets.xcassets */,
 				FA1026371DE031B4008F2E6D /* LaunchScreen.storyboard */,
 				FA10263A1DE031B4008F2E6D /* Info.plist */,
 			);
 			path = TweetMashup;
+			sourceTree = "<group>";
+		};
+		FA32F7011DE0360A007CC46F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA32F7021DE0360B007CC46F /* Alamofire.framework */,
+				FA32F7031DE0360B007CC46F /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +91,7 @@
 				FA1026271DE031B4008F2E6D /* Sources */,
 				FA1026281DE031B4008F2E6D /* Frameworks */,
 				FA1026291DE031B4008F2E6D /* Resources */,
+				FA1026441DE03589008F2E6D /* Carthage Script */,
 			);
 			buildRules = (
 			);
@@ -132,11 +150,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FA1026441DE03589008F2E6D /* Carthage Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+			);
+			name = "Carthage Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FA1026271DE031B4008F2E6D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1026411DE034AF008F2E6D /* TweetTableViewController.swift in Sources */,
 				FA1026311DE031B4008F2E6D /* ViewController.swift in Sources */,
 				FA10262F1DE031B4008F2E6D /* AppDelegate.swift in Sources */,
 			);
@@ -262,6 +299,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 57Y3859J9Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TweetMashup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.awol.TweetMashup;
@@ -275,6 +316,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 57Y3859J9Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = TweetMashup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.awol.TweetMashup;
@@ -302,6 +347,7 @@
 				FA10263F1DE031B4008F2E6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
