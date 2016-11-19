@@ -8,23 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		FA10262F1DE031B4008F2E6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA10262E1DE031B4008F2E6D /* AppDelegate.swift */; };
-		FA1026311DE031B4008F2E6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1026301DE031B4008F2E6D /* ViewController.swift */; };
 		FA1026341DE031B4008F2E6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1026321DE031B4008F2E6D /* Main.storyboard */; };
 		FA1026361DE031B4008F2E6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1026351DE031B4008F2E6D /* Assets.xcassets */; };
 		FA1026391DE031B4008F2E6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1026371DE031B4008F2E6D /* LaunchScreen.storyboard */; };
 		FA1026411DE034AF008F2E6D /* TweetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1026401DE034AF008F2E6D /* TweetTableViewController.swift */; };
+		FA1026431DE0350D008F2E6D /* TwitterAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1026421DE0350D008F2E6D /* TwitterAPI.swift */; };
 		FA32F7041DE0360B007CC46F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA32F7021DE0360B007CC46F /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA10262B1DE031B4008F2E6D /* TweetMashup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TweetMashup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA10262E1DE031B4008F2E6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA1026301DE031B4008F2E6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FA1026331DE031B4008F2E6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA1026351DE031B4008F2E6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA1026381DE031B4008F2E6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA10263A1DE031B4008F2E6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA1026401DE034AF008F2E6D /* TweetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewController.swift; sourceTree = "<group>"; };
+		FA1026421DE0350D008F2E6D /* TwitterAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterAPI.swift; sourceTree = "<group>"; };
 		FA32F7021DE0360B007CC46F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		FA32F7031DE0360B007CC46F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				FA10262E1DE031B4008F2E6D /* AppDelegate.swift */,
-				FA1026301DE031B4008F2E6D /* ViewController.swift */,
+				FA1026421DE0350D008F2E6D /* TwitterAPI.swift */,
 				FA1026321DE031B4008F2E6D /* Main.storyboard */,
 				FA1026401DE034AF008F2E6D /* TweetTableViewController.swift */,
 				FA1026351DE031B4008F2E6D /* Assets.xcassets */,
@@ -173,8 +173,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1026431DE0350D008F2E6D /* TwitterAPI.swift in Sources */,
 				FA1026411DE034AF008F2E6D /* TweetTableViewController.swift in Sources */,
-				FA1026311DE031B4008F2E6D /* ViewController.swift in Sources */,
 				FA10262F1DE031B4008F2E6D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
