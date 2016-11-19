@@ -11,9 +11,12 @@ import UIKit
 class TweetTableViewController: UITableViewController {
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     private var tweetsArray : [Tweet] = []
-
+    @IBOutlet var tweetTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tweetTableView.delegate = self
+        tweetTableView.dataSource = self
     }
     
     @IBAction func refreshButtonTapped(_ sender: Any) {
@@ -22,13 +25,14 @@ class TweetTableViewController: UITableViewController {
         TwitterAPI.sharedInstance.search(query: "%23Trump") {
             [weak self] (result: SearchResult) -> () in
             switch result {
-            case .success(let tweets): break
+            case .success(let tweets):
                 self?.tweetsArray = tweets
             case .failure:
                 print("Well that failed. Idealy I'd present a UIAlert to notify the user of failure here")
             }
             self?.refreshButton.tintColor = UIColor.blue
             self?.refreshButton.isEnabled = true
+            self?.tweetTableView.reloadData()
         }
     }
 
@@ -45,12 +49,13 @@ class TweetTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: , for: indexPath)
-        
-        cell.textLabel
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath)
 
+        cell.textLabel?.text = tweetsArray[indexPath.row].message.replacingOccurrences(of: "Trump", with: "Clinton").replacingOccurrences(of: "Donald", with: "Hillary")
+        cell.detailTextLabel?.text = tweetsArray[indexPath.row].user
         return cell
     }
+    
 
     /*
     // Override to support conditional editing of the table view.
