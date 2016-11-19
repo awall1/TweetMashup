@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--TweetMashup-->
         <scene sceneID="WMM-mx-uBZ">
             <objects>
                 <tableViewController id="4NJ-Ke-7rq" customClass="TweetTableViewController" customModule="TweetMashup" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,7 +56,17 @@
                             <outlet property="delegate" destination="4NJ-Ke-7rq" id="E1h-Oq-zUe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="aSB-yS-GpB"/>
+                    <navigationItem key="navigationItem" title="TweetMashup" id="aSB-yS-GpB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="t2k-rz-ujK">
+                            <connections>
+                                <action selector="refreshButtonTapped:" destination="4NJ-Ke-7rq" id="6i7-3I-YCP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="refreshButton" destination="t2k-rz-ujK" id="FcO-hs-BpV"/>
+                        <outlet property="refreshButtonTapped" destination="t2k-rz-ujK" id="hTB-B9-djj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Xp-oP-d3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

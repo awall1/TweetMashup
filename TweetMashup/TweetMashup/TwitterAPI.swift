@@ -22,7 +22,7 @@ struct Tweet {
 
 enum SearchResult {
     case success([Tweet])
-    case failure(Error)
+    case failure
 }
 
 
@@ -39,7 +39,7 @@ class TwitterAPI {
         authenticate({})
     }
     
-    func search(query: String, completion: (SearchResult)->()) {
+    func search(query: String, completion: @escaping (SearchResult)->()) {
         let headers = ["Authorization":"Bearer \(bearerToken)"]
         let parameters: Parameters = ["q" : query]
         
@@ -61,12 +61,16 @@ class TwitterAPI {
                 var tweet = Tweet()
                 
                 guard   let message = subJson["text"].string,
-                    let user = subJson["user"]["name"].string
-                    else{ return }
+                        let user = subJson["user"]["name"].string
+                else{
+                    completion(.failure)
+                        return
+                }
                 tweet.message = message
                 tweet.user = user
                 tweetArray.append(tweet)
             }
+            completion(.success(tweetArray))
         }
     }
     
@@ -90,7 +94,7 @@ class TwitterAPI {
                     _self.bearerToken = jsonResult["access_token"] as! String
                     completion()
                 }
-            } catch let jsonError as Error {
+            } catch let jsonError {
                 print(jsonError.localizedDescription)
             }
         }
